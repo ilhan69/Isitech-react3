@@ -1,26 +1,29 @@
-import { useState } from "react"
-import { Button, Form, FormLabel } from "react-bootstrap"
+import { Button, Form, FormLabel } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
-import AuthLayout from "../Layouts/AuthLayout"
+import AuthLayout from "../Layouts/AuthLayout";
 
 const Login = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleLogin = (event) => {
-        event.preventDefault()
-        console.log(password, email)
+        console.log(watch("email"))
     }
 
     return (
         <AuthLayout>
             <p className="h2">Connectez vous à votre espace client !</p>
-            <Form onSubmit={handleLogin}>
+            <Form onSubmit={handleSubmit(handleLogin)}>
                 <FormLabel className='mt-3'>Adresse mail</FormLabel>
-                <Form.Control value={email} onChange={e => setEmail(e.target.value)} type='email' />
+                <Form.Control {...register("email", { required: true })} type='email' />
+                {errors.email && <div className="invalid-feedback d-block">Ce champ est requis.</div>}
+                {' '}
+
                 <FormLabel className='mt-3'>Mot de passe</FormLabel>
-                <Form.Control value={password} onChange={e => setPassword(e.target.value)} type='password' />
+                <Form.Control {...register("password", { required: true })} type='password' />
+                {errors.password && <div className="invalid-feedback d-block">Ce champ est requis.</div>}
+                {' '}
 
                 <Button className="mt-3" type='submit' variant='primary'>Connexion</Button>
             </Form>
