@@ -1,25 +1,22 @@
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter, Navigate, Route, Routes
 } from "react-router-dom";
-import NotFound from "./components/Layouts/NotFound";
+import Dashboard from "./components/Dashboard";
+import InputPage from "./components/InputPage";
 import Login from "./components/Login";
 
 const App = () => {
 
-  const router = createBrowserRouter([
-    {
-      errorElement: <NotFound />,
-      path: "/",
-      element: <Login />,
-    },
-  ]);
-  
-
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to={'/login'} />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/inputpage" element={<InputPage />} />
+      </Routes>
+    </BrowserRouter >
   );
 }
 

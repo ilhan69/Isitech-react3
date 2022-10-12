@@ -1,6 +1,6 @@
 import { Col, Image, Row } from "react-bootstrap"
 
-import loginImage from '../images/login.jpg'
+import loginImage from '../../images/login.jpg'
 
 const AuthLayout = (props) => {
     return (

@@ -1,0 +1,1 @@
+export const API_URL_REALISATIONS = 'https://api.newadmin.latavernedudesign.fr/public-api/realisations';
