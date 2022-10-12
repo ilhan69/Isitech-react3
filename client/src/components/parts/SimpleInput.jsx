@@ -1,6 +1,6 @@
 import useInput from '../../hooks/useInput';
 
-// SimpleInput est un composant réutilisable qui va nous permettre de générer un formulaire
+// SimpleInput est un composant qui va nous permettre de générer un formulaire
 const SimpleInput = () => {
 
     // useInput est un hook qui permet de contrôler un input, d'en récuperer la valeur et de faire de la validation.

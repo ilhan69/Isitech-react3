@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// déclaration du hook useInput
 const useInput = (validateValue) => {
 
     const [enteredValue, setEnteredValue] = useState('');
