@@ -1,6 +1,6 @@
-import DashboardLayout from "../Layouts/DashboardLayout"
-import BasicForm from "../parts/BasicForm"
-import SimpleInput from "../parts/SimpleInput"
+import DashboardLayout from "../../layouts/DashboardLayout"
+import BasicForm from "../../parts/BasicForm"
+import SimpleInput from "../../parts/SimpleInput"
 
 const InputPage = () => {
 

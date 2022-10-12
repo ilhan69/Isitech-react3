@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import '../../scss/dashboard.scss';
+import userContext from "../contexts/userContext";
 
 const DashboardLayout = (props) => {
+
+    const { dispatchUser } = useContext(userContext)
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        localStorage.removeItem('loggedIn')
+        dispatchUser({type:'LOGOUT'})
+        navigate('/login')
+    }
+    
     return (
         <div className="vh-100">
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100 position-fixed" style={{ width: '280px' }}>
@@ -24,6 +36,11 @@ const DashboardLayout = (props) => {
                         <Link to={'/login'} className="nav-link">
                             Connexion
                         </Link>
+                    </li>
+                    <li>
+                        <span onClick={handleLogout} className="nav-link">
+                            Déonnexion
+                        </span>
                     </li>
                 </ul>
                 <hr />

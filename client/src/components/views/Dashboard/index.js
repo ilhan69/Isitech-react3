@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from "react"
 import { Col, Row, Spinner } from "react-bootstrap"
-import DashboardLayout from "../Layouts/DashboardLayout"
+import DashboardLayout from "../../layouts/DashboardLayout"
 
-import { API_URL_REALISATIONS } from '../../config/constants'
+import { API_URL_REALISATIONS } from '../../../config/constants'
 
 const Dashboard = () => {
 
@@ -17,7 +17,8 @@ const Dashboard = () => {
 
     return (
         <DashboardLayout title='Accueil'>
-
+            <p className='h3'>Découvrez les réalisations</p>
+            
             {dataList !== null ? (
                 <Row>
                     { dataList.data.map((d, i) => {

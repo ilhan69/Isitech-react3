@@ -1,18 +1,21 @@
+import { useContext } from "react";
 import { Button, Form, FormLabel } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import userContext from "../../contexts/userContext";
 
-import AuthLayout from "../Layouts/AuthLayout";
+import AuthLayout from "../../layouts/AuthLayout";
 
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const navigate = useNavigate();
+    const { dispatchUser } = useContext(userContext)
 
     const handleLogin = (data) => {
-        console.log(data)
-
+        localStorage.setItem('loggedIn', true)
+        dispatchUser({ type: 'SIGNIN', payload: { logged:true, email: data.email, password: data.password } })
         navigate('/dashboard')
     }
 

@@ -1,22 +1,31 @@
+import React from "react";
 import {
   BrowserRouter, Navigate, Route, Routes
 } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import InputPage from "./components/InputPage";
-import Login from "./components/Login";
+import ProtectedRoute from "./components/layouts/ProtectedRoute";
+import Dashboard from "./components/views/Dashboard";
+import InputPage from "./components/views/InputPage";
+import Login from "./components/views/Login";
+
+import userContext from './components/contexts/userContext';
+import userReducer from './components/reducer/user';
 
 const App = () => {
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to={'/login'} />} />
+  const [user, dispatchUser] = React.useReducer(userReducer, { logged: localStorage.getItem('loggedIn'), email: '', password: '' })
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/inputpage" element={<InputPage />} />
-      </Routes>
-    </BrowserRouter >
+  return (
+    <userContext.Provider value={{ user, dispatchUser }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to={'/login'} />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<ProtectedRoute page={<Dashboard />} />} />
+          <Route path="/inputpage" element={<ProtectedRoute page={<InputPage />} />} />
+        </Routes>
+      </BrowserRouter >
+    </userContext.Provider>
   );
 }
 

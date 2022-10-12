@@ -1,9 +1,16 @@
-import Login from "../Login";
+import { useContext } from "react";
+import userContext from "../contexts/userContext";
+import Login from "../views/Login";
 
-export const ProtectedRoute = ({ children }) => {
-  const user = true;
-  if (!user) {
+const ProtectedRoute = (props) => {
+
+  const {user} = useContext(userContext)
+
+  if (!user.logged) {
     return <Login />;
+  } else {
+    return props.page;
   }
-  return children;
 };
+
+export default ProtectedRoute
