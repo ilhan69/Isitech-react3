@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Alert, Button, Form, Modal, Table } from "react-bootstrap"
 import { Input, Label } from "reactstrap"
 import DashboardLayout from "../../layouts/DashboardLayout"
-import WheelFortune from "./WheelFortune"
+// import WheelFortune from "./WheelFortune"
 
 const InputPage = () => {
 
