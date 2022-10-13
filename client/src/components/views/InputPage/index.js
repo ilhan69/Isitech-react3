@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Alert, Button, Form, Modal, Table } from "react-bootstrap"
 import { Input, Label } from "reactstrap"
 import DashboardLayout from "../../layouts/DashboardLayout"
-// import WheelFortune from "./WheelFortune"
+import WheelFortune from "./WheelFortune"
 
 const InputPage = () => {
 
@@ -63,8 +63,7 @@ const InputPage = () => {
 
             {groups.length > 0 ?
                 <div className="d-flex flex-column align-items-center">
-                    {/* <WheelFortune groups={groups} /> */}
-                    <p>Roue de la fortune indisponible car le package n'était pas maintenu :-(</p>
+                    <WheelFortune groups={groups} />
                 </div>
                 : <Alert>Ajoutez des groupes pour faire un tirage au sort</Alert>
             }
