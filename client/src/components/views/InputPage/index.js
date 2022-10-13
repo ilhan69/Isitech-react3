@@ -63,7 +63,8 @@ const InputPage = () => {
 
             {groups.length > 0 ?
                 <div className="d-flex flex-column align-items-center">
-                    <WheelFortune groups={groups} />
+                    {/* <WheelFortune groups={groups} /> */}
+                    <p>Roue de la fortune indisponible car le package n'était pas maintenu :-(</p>
                 </div>
                 : <Alert>Ajoutez des groupes pour faire un tirage au sort</Alert>
             }
