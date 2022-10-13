@@ -8,7 +8,7 @@ const WheelFortune = (props) => {
 
 
   const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * props.groups.length)
+    const newPrizeNumber = Math.floor(Math.random() * props.groups.length) - 1
     const winner = props.groups.filter((group, i) => i === newPrizeNumber)[0]
     setPrizeNumber(winner.option)
     setMustSpin(true)
