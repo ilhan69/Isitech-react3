@@ -45,8 +45,8 @@ Diagramme UML du fonctionnement des routes
 
 ```mermaid
 graph LR
-A[L'utilisateur accède à une route] --> B([Définition du type de route : Login ou Dashboard])
-B -- Type login -- --> D{Layout Authentification} --> E(Page de connexion)
-B -- Type dashboard -- --> F{Layout Dashboard} --> G{Layout ProtectedRoute}
-G --> H(Page du dashboard)
+A[L'utilisateur accède à une route] --> B([react-router-dom])
+B -- Route de type login -- --> D{Layout Authentification} --> E(Page de connexion)
+B -- Route de type dashboard -- --> F{Layout Dashboard} --> G{Layout ProtectedRoute : vérification de la connexon}
+G --> H(Page concernée du dashboard)
 ```
