@@ -29,7 +29,7 @@ const DashboardLayout = (props) => {
                     </li>
                     <li className="nav-item">
                         <Link to={'/inputpage'} className="nav-link">
-                            Input page
+                            Votre profil
                         </Link>
                     </li>
                     <li>

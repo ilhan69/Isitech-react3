@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/dashboard" element={<ProtectedRoute page={<Dashboard />} />} />
           <Route path="/inputpage" element={<ProtectedRoute page={<InputPage />} />} />
         </Routes>
-      </BrowserRouter >
+      </BrowserRouter>
     </userContext.Provider>
   );
 }
